@@ -7,7 +7,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import BQuestionsAnswers from './assets/components/QuestionsAnswers/BQuestionsAnswers';
 
 function App() {
-  const respuestas = ["Verdadero","Falso","Tercera Opcion de Prueba"]
+  const respuestas = ["Falso","Tercera Opcion de Prueba"]
 
   return (
     <>
