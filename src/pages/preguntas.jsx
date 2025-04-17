@@ -3,19 +3,12 @@ import { useLocation } from "react-router-dom";
 import useAPITrivia from '../assets/components/APITrivia/useAPITrivia';
 
 function preguntas() {
-    const [nombre, setNombre] = useState('');
-    const [category, setCategory] = useState('');
-    const [difficulty, setDifficulty] = useState('');
     const location = useLocation();
-
-    useEffect(() => {
-        const params = new URLSearchParams(location.search);
-        setNombre(params.get('nombre') || "");
-        setCategory(params.get('category') || 'any');
-        setDifficulty(params.get('difficulty') || null);
-    }, [location.search]);
-
-    // Desestructura triggerReload del hook
+    const params = new URLSearchParams(location.search);
+    const [nombre, setNombre] = useState(params.get('nombre') || '');
+    const [category, setCategory] = useState(params.get('category') || '');
+    const [difficulty, setDifficulty] = useState(params.get('difficulty') || '');
+   
     const { data, loading, error, triggerReload } = useAPITrivia(category, difficulty);
 
     return (
