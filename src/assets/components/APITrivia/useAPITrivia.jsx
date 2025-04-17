@@ -11,14 +11,15 @@ const useAPITrivia = (category, difficulty) => {
   };
 
   useEffect(() => {
+
     const fetchQuestions = async () => { // Mejor usar async/await
       try {
         setLoading(true);
         setError(null);
 
         let url = `https://opentdb.com/api.php?amount=10`;
-        if (category) url += `&category=${category}`;
-        if (difficulty) url += `&difficulty=${difficulty}`;
+        if (category ==="") url += `&category=${category}`;
+        if (difficulty ==="") url += `&difficulty=${difficulty}`;
 
         const response = await fetch(url);
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);

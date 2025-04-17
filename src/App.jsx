@@ -4,14 +4,26 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import BQuestionsAnswers from './assets/components/QuestionsAnswers/BQuestionsAnswers';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import React from 'react';
 
-function App() {
-  const respuestas = ["Falso","Tercera Opcion de Prueba"]
+const Trivia = React.lazy(() => import('./pages/triviaTest.jsx'));
+const Preguntas = React.lazy(() => import('./pages/preguntas.jsx'));
 
+function App() {  
   return (
     <>
-     <BQuestionsAnswers title="Pregunta 1" pregunta="Charly es homosexy? Para responder esta pregunta tomar en cuenta anteriores comportamientos de dicho individuo." respuestas={respuestas} respuestaCorrecta={"Verdadero"}></BQuestionsAnswers>
+      <BrowserRouter>
+        <header>
+          <Link to={'/'} className='Link'>Inicio</Link>
+          <Link to={'/preguntas'} className='Link'>Preguntas</Link>
+        </header>
+
+        <Routes>
+          <Route path="/" element={<Trivia />} />
+          <Route path="/preguntas" element={<Preguntas />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }

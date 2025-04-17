@@ -1,15 +1,15 @@
 import { useState } from "react"
 import CSelect from "./CSelect";
 
-export function FormsStar(path) {
+function FormsStart(path) {
 
-    const [nombre, setNombre] = useState("");
-    const [category, setCategory] = useState("");
-    const [difficulty, setDifficulty] = useState("");
+    const [nombre, setNombre] = useState(" ");
+    const [category, setCategory] = useState(" ");
+    const [difficulty, setDifficulty] = useState(" ");
 
-     const handleSubmit = (e) => {
+    const handleSubmit = (e) => {
     e.preventDefault(); 
-    window.location.href = `${path}?nombre=${nombre}&category=${category}&difficulty=${difficulty}`;
+    window.location.href = `/preguntas?nombre=${nombre}&category=${category}&difficulty=${difficulty}`;
   };
     const items = [
         {value:"", text:"Cualquier Dificultad"},
@@ -65,3 +65,4 @@ export function FormsStar(path) {
         </>
     );
 }
+export default FormsStart;
