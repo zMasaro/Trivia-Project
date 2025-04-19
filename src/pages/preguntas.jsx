@@ -15,7 +15,7 @@ function Preguntas() {
     if (error) return <p>Error: {error}</p>;
 
     return (
-        <>
+        <section className="preguntas">
             <h1>Página de Preguntas</h1>
             <p>Nombre: {nombre}</p>
             <button onClick={triggerReload}>Recargar Preguntas</button>
@@ -34,7 +34,7 @@ function Preguntas() {
                     </div>
                 ))}
             </div>
-        </>
+        </section>
     );
 }
 

@@ -1,42 +1,156 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* ==================== VARIABLES ==================== */
+:root {
+  --primary-color: #6720BA;
+  --secondary-color: #9D4EDD;
+  --shadow-color: #652b94;
+}
+
+/* ==================== FUENTES ==================== */
+@font-face {
+  font-family: 'Kraash';
+  src: url('./Kraash.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'KraashBlack';
+  src: url('./Kraash\\ Black.ttf') format('truetype');
+}
+
+/* ==================== ANIMACIONES ==================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20%);
+  }
+  to {
+    opacity: 0.8;
+    transform: translateY(0);
+  }
+}
+
+@keyframes waveAnimation {
+  from {
+    transform: translateY(-20px);
+  }
+  to {
+    transform: translateY(20px);
+  }
+}
+
+/* ==================== BODY ==================== */
+body {
+  margin: 0;
+  background-image: url('./assets/imagenes/fondo.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ==================== HERO ==================== */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* pantalla completa */
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  z-index: 1;
+  animation: fadeInUp 2s ease;
+}
+
+/* ==================== CONTENIDO HERO ==================== */
+.contenido-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10vh;
+  gap: 1.5rem;
+  z-index: 2;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+/* ==================== TITULOS ==================== */
+.titulo {
+  font-size: 5vw;
+  font-family: 'Kraash', sans-serif;
+  color: white;
+  margin: 0 0 8rem 0;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* ==================== BOTON ==================== */
+#boton {
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: white;
+  background: var(--primary-color);
+  border: 2px solid var(--secondary-color);
+  border-radius: .75rem;
+  box-shadow: 0 8px 0 var(--secondary-color);
+  transform: skew(-10deg);
+  transition: all .1s ease;
+  filter: drop-shadow(0 15px 20px var(--shadow-color));
+  cursor: pointer;
+}
+
+#boton:active {
+  letter-spacing: 0px;
+  transform: skew(-10deg) translateY(8px);
+  box-shadow: 0 0 0 var(--shadow-color);
+}
+
+/* ==================== WAVES ==================== */
+.wavescontainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.wavescontainer svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
+  opacity: 0.7;
+}
+
+.wave1, .wave2, .wave3, .wave4, .wave5, .wave6 {
+  animation: waveAnimation 10s infinite alternate-reverse;
+  position: relative;
+  
+}
+
+.wave2 { animation-duration: 8s; }
+.wave3 { animation-duration: 6s; }
+.wave4 { animation-duration: 7s; }
+.wave5 { animation-duration: 5s; }
+.wave6 { animation-duration: 3.5s; }
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .titulo {
+    font-size: 12vw;
   }
-  to {
-    transform: rotate(360deg);
+
+  #boton {
+    font-size: 1.2rem;
+    padding: 0.75rem 1.5rem;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.preguntas{
+  background-color: rgba(255, 255, 255, 0.781);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: start;
 }
