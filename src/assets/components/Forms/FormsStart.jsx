@@ -48,15 +48,17 @@ function FormsStart(path) {
 
     return (
         <>
-            <section className="hero">
+            <section className="formu">
 
                 <form id="formulario" onSubmit={handleSubmit}>
-                    
-                    <label className="titulo-Etiqueta" htmlFor="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" required="" onChange={(e) => setNombre(e.target.value)} />
-                    
+
                     <h2>Selecciona tu desafío</h2>
                     
+                    <label className="titulo-Etiqueta" htmlFor="nombre" >Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required="" placeholder="Ingresa tu nombre aqui" onChange={(e) => setNombre(e.target.value)} />
+
+
+
                     <label className="titulo-Etiqueta" htmlFor="categoria">Categoría:</label>
                     <CSelect id="category" name="category" items={categories} onChange={(e) => setCategory(e.target.value)} />
 
