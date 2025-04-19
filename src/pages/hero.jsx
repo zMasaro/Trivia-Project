@@ -1,16 +1,21 @@
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import FormsStart from "../assets/components/Forms/FormsStart";
 
 function hero() {
-    const navigate = useNavigate();
+  const [showForm, setShowForm] = useState(false);
 
-    const handleClick = () => {
-      navigate("/formulario"); // Cambia esto por la ruta deseada
-    };
+  const handleClick = () => {
+    setShowForm(true); // Al hacer click, muestra el formulario
+  };
   return (
     <section className="hero">
       <div className="contenido-hero">
         <h1 className="titulo">Pa' Saber!</h1>
-        <button id="boton" onClick={handleClick}>Empezar</button>
+        {!showForm && (
+                    <button id="boton" onClick={handleClick}>
+                        Empezar
+                    </button>
+                )}
       </div>
       <div className="wavescontainer">
         <svg id="wave-svg" viewBox="10 80 900 452.5">
@@ -46,7 +51,11 @@ function hero() {
           />
         </svg>
       </div>
-      
+      {showForm && (
+                <div className="form-container">
+                    <FormsStart />
+                </div>
+            )}
     </section>
   );
 }
