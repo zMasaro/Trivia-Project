@@ -3,7 +3,7 @@ const CSelect = ({id, name, items, onChange}) => {
         <>
             <select id={id} name={name} onChange={onChange}>
                 {items.map((item) => (
-                    <option value={item.value} >
+                    <option className="opcion" value={item.value} >
                     {item.text} 
                     </option>
                 ))}

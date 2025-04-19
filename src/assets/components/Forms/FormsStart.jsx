@@ -8,14 +8,14 @@ function FormsStart(path) {
     const [difficulty, setDifficulty] = useState(" ");
 
     const handleSubmit = (e) => {
-    e.preventDefault(); 
-    window.location.href = `/preguntas?nombre=${nombre}&category=${category}&difficulty=${difficulty}`;
-  };
+        e.preventDefault();
+        window.location.href = `/preguntas?nombre=${nombre}&category=${category}&difficulty=${difficulty}`;
+    };
     const items = [
-        {value:"", text:"Cualquier Dificultad"},
-        {value:"easy", text:"Facíl"},
-        {value:"medium", text:"Medio"},
-        {value:"hard", text:"Dificil" }
+        { value: "", text: "Cualquier Dificultad" },
+        { value: "easy", text: "Facíl" },
+        { value: "medium", text: "Medio" },
+        { value: "hard", text: "Dificil" }
     ];
 
     const categories = [
@@ -48,20 +48,24 @@ function FormsStart(path) {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                
-                <label htmlFor="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required="" onChange={(e) => setNombre(e.target.value)}/>
-                
-                <label htmlFor="categoria">Categoría:</label>
-                <CSelect id="category" name="category" items={categories} onChange={(e) => setCategory(e.target.value)} />
-                
-                <label htmlFor="dificultad">Dificultad:</label>
-                <CSelect id="difficulty" name="difficulty" required="" items={items} onChange={(e) => setDifficulty(e.target.value)}></CSelect>
-                
-                <button type="submit">Enviar</button>
-            </form>
+            <section className="hero">
 
+                <form id="formulario" onSubmit={handleSubmit}>
+                    
+                    <label className="titulo-Etiqueta" htmlFor="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required="" onChange={(e) => setNombre(e.target.value)} />
+                    
+                    <h2>Selecciona tu desafío</h2>
+                    
+                    <label className="titulo-Etiqueta" htmlFor="categoria">Categoría:</label>
+                    <CSelect id="category" name="category" items={categories} onChange={(e) => setCategory(e.target.value)} />
+
+                    <label className="titulo-Etiqueta" htmlFor="dificultad">Dificultad:</label>
+                    <CSelect id="difficulty" name="difficulty" required="" items={items} onChange={(e) => setDifficulty(e.target.value)}></CSelect>
+
+                    <button id="boton" type="submit">Desafiar</button>
+                </form>
+            </section>
         </>
     );
 }
