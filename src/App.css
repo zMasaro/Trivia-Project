@@ -8,12 +8,7 @@
 /* ==================== FUENTES ==================== */
 @font-face {
   font-family: 'Kraash';
-  src: url('./Kraash.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'KraashBlack';
-  src: url('./Kraash\\ Black.ttf') format('truetype');
+  src: url('./assets/Fonts/Kraash.ttf') format('truetype');
 }
 
 /* ==================== ANIMACIONES ==================== */
