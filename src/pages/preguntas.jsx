@@ -3,6 +3,9 @@ import { useLocation } from "react-router-dom";
 import useAPITranslation from "../assets/components/APIHooks/useAPITranslation";
 import BQuestionsAnswers from "../assets/components/QuestionsAnswers/BQuestionsAnswers";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import useTime from "../assets/components/QuestionsAnswers/useTime";
+import QuestionTimer from "../assets/components/Progressbar/QuestionTimer";
+import CSpinnerEspacial from "../assets/components/Spinner/CSpinnerEspacial";
 
 
 function Preguntas() {
@@ -18,6 +21,7 @@ function Preguntas() {
   const [indiceActual, setIndiceActual] = useState(0);
   const [bloqueado, setBloqueado] = useState(false);
   const cargandoMasRef = useRef(false);
+  const time = useTime(difficulty);
 
   // Añadir preguntas cuando translatedData cambia
   useEffect(() => {
@@ -41,11 +45,11 @@ function Preguntas() {
     setTimeout(() => {
       setIndiceActual((prev) => prev + 1);
       setBloqueado(false);
-    }, 4000);
+    }, 2000);
   };
 
-  if (loading && preguntas.length === 0) return <p>Cargando preguntas...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading && preguntas.length === 0) return <CSpinnerEspacial text={"Obteniendo preguntas"} />;
+  if (error) return <CSpinnerEspacial text={`Error: ${error}`} />;
 
   const preguntaActual = preguntas[indiceActual];
 
@@ -75,7 +79,10 @@ function Preguntas() {
             respuestas={preguntaActual.incorrect_answers}
             respuestaCorrecta={preguntaActual.correct_answer}
             onRespuestaSeleccionada={manejarSiguientePregunta}
+            time={time}
           />
+          <br></br>
+          <QuestionTimer key={indiceActual} time={time}></QuestionTimer>
         </div>
       )}
     </section>
