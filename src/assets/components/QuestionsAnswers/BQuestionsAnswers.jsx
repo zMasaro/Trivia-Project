@@ -9,7 +9,7 @@ function mezclarRespuestas(respuestas, correcta) {
     .map(({ item }) => item);
 }
 
-function BQuestionsAnswers({ title, pregunta, respuestas, respuestaCorrecta, onRespuestaSeleccionada }) {
+function BQuestionsAnswers({ title, pregunta, respuestas, respuestaCorrecta, onRespuestaSeleccionada, time }) {
   const [respuestaSeleccionada, setRespuestaSeleccionada] = useState(null);
   const timerRef = useRef(null);
   const respondidoRef = useRef(false);
@@ -24,7 +24,7 @@ function BQuestionsAnswers({ title, pregunta, respuestas, respuestaCorrecta, onR
     setRespuestaSeleccionada(null);
     respondidoRef.current = false;
 
-    
+
     timerRef.current = setTimeout(() => {
       if (!respondidoRef.current) {
         setRespuestaSeleccionada(respuestaCorrecta);
@@ -34,9 +34,9 @@ function BQuestionsAnswers({ title, pregunta, respuestas, respuestaCorrecta, onR
           if (typeof onRespuestaSeleccionada === "function") {
             onRespuestaSeleccionada();
           }
-        }, 2000); 
+        }, 2000);
       }
-    }, 10000); 
+    }, (time * 1000));
 
     return () => clearTimeout(timerRef.current);
   }, [pregunta]);

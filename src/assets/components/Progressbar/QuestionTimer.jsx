@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
-import BProgressBar from "../components/ProgressBar/BProgressBar";
+import BProgressBar from "./BProgressBar";
 
-function QuestionTimer() {
-  const [timeLeft, setTimeLeft] = useState(15); 
+function QuestionTimer({time}) {
+  const [timeLeft, setTimeLeft] = useState(time); 
   const [percentage, setPercentage] = useState(100); 
 
   useEffect(() => {
-    const totalDuration = 15; 
+    const totalDuration = time; 
     const intervalo = 1000; 
 
     const timer = setInterval(() => {
       if (timeLeft > 0) {
         setTimeLeft(prev => prev - 1); 
+        console.log("Time left:", timeLeft);
         setPercentage(prev => (timeLeft / totalDuration) * 100); 
       }
     }, intervalo);
@@ -26,7 +27,7 @@ function QuestionTimer() {
       <BProgressBar
         percentage={percentage} 
         color="success"          
-        height="80px"            
+        height="20px"            
         width="100%"            
       />
     </div>
