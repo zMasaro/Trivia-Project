@@ -9,7 +9,7 @@
   }
   
   /* ==================== TITULO (H1) ==================== */
-  h1 {
+  #h1 {
     font-size: 3rem;
     font-weight: bold;
     text-align: center;
