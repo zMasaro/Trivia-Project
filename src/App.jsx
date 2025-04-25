@@ -9,10 +9,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <header>
-          <Link to={'/'} className='Link'>Inicio</Link>
-          <Link to={'/preguntas'} className='Link'>Preguntas</Link>
-        </header>
+       
 
         <Routes>
         <Route path="/" element={<Hero />} />
