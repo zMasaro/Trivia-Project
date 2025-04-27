@@ -7,7 +7,6 @@ import useTime from "../assets/components/QuestionsAnswers/useTime";
 import QuestionTimer from "../assets/components/Progressbar/QuestionTimer";
 import CSpinnerEspacial from "../assets/components/Spinner/CSpinnerEspacial";
 
-
 function Preguntas() {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
@@ -22,6 +21,19 @@ function Preguntas() {
   const [bloqueado, setBloqueado] = useState(false);
   const cargandoMasRef = useRef(false);
   const time = useTime(difficulty);
+
+  // Nuevos estados para estadísticas y puntaje
+  const [totalPreguntas, setTotalPreguntas] = useState(0);
+  const [aciertos, setAciertos] = useState(0);
+  const [porcentajeAciertos, setPorcentajeAciertos] = useState(0);
+  const [puntajeTotal, setPuntajeTotal] = useState(0);
+
+  // Actualizar porcentaje cada vez que cambien los aciertos o el total
+  useEffect(() => {
+    if (totalPreguntas > 0) {
+      setPorcentajeAciertos(((aciertos / totalPreguntas) * 100).toFixed(2));
+    }
+  }, [aciertos, totalPreguntas]);
 
   // Añadir preguntas cuando translatedData cambia
   useEffect(() => {
@@ -38,15 +50,27 @@ function Preguntas() {
     }
   }, [indiceActual, preguntas.length, triggerReload]);
 
-  const manejarSiguientePregunta = () => {
+  const manejarSiguientePregunta = (acerto, segundosTardados) => {
     if (bloqueado) return;
     setBloqueado(true);
-
+  
     setTimeout(() => {
       setIndiceActual((prev) => prev + 1);
       setBloqueado(false);
+  
+      // Actualizar estadísticas
+      setTotalPreguntas((prev) => prev + 1);
+  
+      if (acerto) {
+        setAciertos((prev) => prev + 1);
+      }
+  
+      // Calcular puntaje
+      const puntosGanados = Math.max(0, 1500 - (segundosTardados * 50));
+      setPuntajeTotal((prev) => prev + puntosGanados);
     }, 2000);
   };
+  
 
   if (loading && preguntas.length === 0) return <CSpinnerEspacial text={"Obteniendo preguntas"} />;
   if (error) return <CSpinnerEspacial text={`Error: ${error}`} />;
@@ -66,13 +90,28 @@ function Preguntas() {
           setIndiceActual(0);
           cargandoMasRef.current = false;
           triggerReload();
+
+          // Resetear estadísticas también si recarga
+          setTotalPreguntas(0);
+          setAciertos(0);
+          setPorcentajeAciertos(0);
+          setPuntajeTotal(0);
         }}
       >
         Recargar Preguntas
       </button>
 
+      {/* Mostrar estadísticas */}
+      <div className="card p-3 mb-4" style={{ maxWidth: "400px", margin: "auto" }}>
+        <h5 className="text-center mb-3">Estadísticas</h5>
+        <p><strong>Total de Preguntas respondidas:</strong> {totalPreguntas}</p>
+        <p><strong>Aciertos:</strong> {aciertos}</p>
+        <p><strong>Porcentaje de Aciertos:</strong> {porcentajeAciertos}%</p>
+        <p><strong>Puntaje Total:</strong> {puntajeTotal} puntos</p>
+      </div>
+
       {preguntaActual && (
-        <div className="d-flex justify-content-center">
+        <div className="d-flex flex-column align-items-center">
           <BQuestionsAnswers
             title={`Pregunta ${indiceActual + 1}`}
             pregunta={preguntaActual.question}
@@ -81,8 +120,8 @@ function Preguntas() {
             onRespuestaSeleccionada={manejarSiguientePregunta}
             time={time}
           />
-          <br></br>
-          <QuestionTimer key={indiceActual} time={time}></QuestionTimer>
+          <br />
+          <QuestionTimer key={indiceActual} time={time} />
         </div>
       )}
     </section>

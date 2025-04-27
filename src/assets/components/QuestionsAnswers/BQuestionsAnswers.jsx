@@ -13,6 +13,7 @@ function BQuestionsAnswers({ title, pregunta, respuestas, respuestaCorrecta, onR
   const [respuestaSeleccionada, setRespuestaSeleccionada] = useState(null);
   const timerRef = useRef(null);
   const respondidoRef = useRef(false);
+  const tiempoInicioRef = useRef(null);
 
   const respuestasMezcladas = useMemo(
     () => mezclarRespuestas(respuestas, respuestaCorrecta),
@@ -20,23 +21,22 @@ function BQuestionsAnswers({ title, pregunta, respuestas, respuestaCorrecta, onR
   );
 
   useEffect(() => {
-    // Reset todo al cambiar de pregunta
+    // Reset al cambiar de pregunta
     setRespuestaSeleccionada(null);
     respondidoRef.current = false;
-
+    tiempoInicioRef.current = Date.now(); // Guardamos el tiempo de inicio
 
     timerRef.current = setTimeout(() => {
       if (!respondidoRef.current) {
         setRespuestaSeleccionada(respuestaCorrecta);
         respondidoRef.current = true;
 
-        setTimeout(() => {
-          if (typeof onRespuestaSeleccionada === "function") {
-            onRespuestaSeleccionada();
-          }
-        }, 2000);
+        const segundosTardados = Math.floor((Date.now() - tiempoInicioRef.current) / 1000);
+        if (typeof onRespuestaSeleccionada === "function") {
+          onRespuestaSeleccionada(false, segundosTardados); // No acertó
+        }
       }
-    }, (time * 1000));
+    }, time * 1000);
 
     return () => clearTimeout(timerRef.current);
   }, [pregunta]);
@@ -48,11 +48,14 @@ function BQuestionsAnswers({ title, pregunta, respuestas, respuestaCorrecta, onR
     setRespuestaSeleccionada(respuesta);
     respondidoRef.current = true;
 
+    const segundosTardados = Math.floor((Date.now() - tiempoInicioRef.current) / 1000);
+    const acerto = respuesta === respuestaCorrecta;
+
     setTimeout(() => {
       if (typeof onRespuestaSeleccionada === "function") {
-        onRespuestaSeleccionada();
+        onRespuestaSeleccionada(acerto, segundosTardados);
       }
-    }, 2000); o
+    }, 2000);
   };
 
   return (
