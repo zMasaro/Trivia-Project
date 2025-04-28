@@ -63,14 +63,13 @@ function Preguntas() {
   
       if (acerto) {
         setAciertos((prev) => prev + 1);
-      }
   
-      // Calcular puntaje
-      const puntosGanados = Math.max(0, 1500 - (segundosTardados * 50));
-      setPuntajeTotal((prev) => prev + puntosGanados);
+        // Solo sumar puntos si acertó
+        const puntosGanados = Math.max(0, 1500 - (segundosTardados * 50));
+        setPuntajeTotal((prev) => prev + puntosGanados);
+      }
     }, 2000);
   };
-  
 
   if (loading && preguntas.length === 0) return <CSpinnerEspacial text={"Obteniendo preguntas"} />;
   if (error) return <CSpinnerEspacial text={`Error: ${error}`} />;
