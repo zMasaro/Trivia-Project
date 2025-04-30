@@ -154,14 +154,6 @@ body {
   }
 }
 
-.preguntas {
-  background-color: rgba(255, 255, 255, 0.781);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: start;
-}
-
 /* ==================== FORMULARIO ==================== */
 
 .formu {
@@ -221,4 +213,70 @@ select:focus {
   margin-top: 10vh;
   z-index: +2;
   animation: fadeInUp 3s;
+}
+
+/*-------------------------------Pagina preguntas-------------------------------*/
+
+.tarjetaQuestions {
+  padding: 2rem;
+  margin: 2rem;
+  border-radius: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.781);
+
+}
+
+.botonesAnswers{
+width: 100%;
+}
+
+.quetionTimerContainer{
+  margin-top: 2vh;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+}
+.questionTimerNumber{
+  color: white;
+  text-align: start;
+  border-radius: 100%;
+}
+
+/*----Botones de respues de las preguntas--*/
+/*
+.botonPreguntas {
+  display: block;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: row-reverse;
+
+  max-width: 50dvh;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin: 0.75rem 1rem;
+  
+  text-align: center;
+  text-decoration: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+*/
+
+/*-----*/
+.botonNormalPreguntas {
+  background-color: #007bff;
+  color: white;
+}
+
+.botonCorrectoPreguntas {
+  background-color: #28a745;
+  color: white;
+}
+
+.botonIncorrectoPreguntas {
+  background-color: #dc3545;
+  color: white;
 }
