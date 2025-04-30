@@ -7,6 +7,8 @@ import useTime from "../assets/components/QuestionsAnswers/useTime";
 import QuestionTimer from "../assets/components/Progressbar/QuestionTimer";
 import CSpinnerEspacial from "../assets/components/Spinner/CSpinnerEspacial";
 
+
+
 function Preguntas() {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
@@ -108,7 +110,7 @@ function Preguntas() {
         <p><strong>Porcentaje de Aciertos:</strong> {porcentajeAciertos}%</p>
         <p><strong>Puntaje Total:</strong> {puntajeTotal} puntos</p>
       </div>
-
+       
       {preguntaActual && (
         <div className="d-flex flex-column align-items-center">
           <BQuestionsAnswers
