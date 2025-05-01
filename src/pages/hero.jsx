@@ -1,6 +1,7 @@
 import { useState } from "react";
 import FormsStart from "../assets/components/Forms/FormsStart";
 
+
 function hero() {
   const [showForm, setShowForm] = useState(false);
 
@@ -12,10 +13,10 @@ function hero() {
       <div className="contenido-hero">
         <h1 className="titulo">Pa' Saber!</h1>
         {!showForm && (
-                    <button id="boton" onClick={handleClick}>
-                        Empezar
-                    </button>
-                )}
+          <button id="boton" onClick={handleClick}>
+            Empezar
+          </button>
+        )}
       </div>
       <div className="wavescontainer">
         <svg id="wave-svg" viewBox="10 80 900 452.5">
@@ -52,10 +53,10 @@ function hero() {
         </svg>
       </div>
       {showForm && (
-                <div className="form-container">
-                    <FormsStart />
-                </div>
-            )}
+        <div className="form-container">
+          <FormsStart />
+        </div>
+      )}
     </section>
   );
 }

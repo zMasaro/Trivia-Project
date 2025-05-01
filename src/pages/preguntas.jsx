@@ -8,6 +8,8 @@ import QuestionTimer from "../assets/components/Progressbar/QuestionTimer";
 import CSpinnerEspacial from "../assets/components/Spinner/CSpinnerEspacial";
 import { agregarEstadistica } from "../assets/components/QuestionsAnswers/Estadisticas";
 
+
+
 function Preguntas() {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
@@ -54,17 +56,17 @@ function Preguntas() {
   const manejarSiguientePregunta = (acerto, segundosTardados) => {
     if (bloqueado) return;
     setBloqueado(true);
-  
+
     setTimeout(() => {
       setIndiceActual((prev) => prev + 1);
       setBloqueado(false);
-  
+
       // Actualizar estadísticas
       setTotalPreguntas((prev) => prev + 1);
-  
+
       if (acerto) {
         setAciertos((prev) => prev + 1);
-  
+
         // Solo sumar puntos si acertó
         const puntosGanados = Math.max(0, 1500 - (segundosTardados * 50));
         setPuntajeTotal((prev) => prev + puntosGanados);
@@ -85,26 +87,26 @@ function Preguntas() {
   return (
     <div className="contenedorPagePreguntas">
       <button id="boton" onClick={() => handleStadisticas()}><a href="/resultados">Teminar</a></button>
-    <section className="contenedorPreguntas">
+      <section className="contenedorPreguntas">
 
-      {preguntaActual && (
-        <>
-        <div className="BQuestionAnswer">
-          <BQuestionsAnswers
-            title={`Pregunta ${indiceActual + 1}`}
-            pregunta={preguntaActual.question}
-            respuestas={preguntaActual.incorrect_answers}
-            respuestaCorrecta={preguntaActual.correct_answer}
-            onRespuestaSeleccionada={manejarSiguientePregunta}
-            time={time}
-          />
-        </div>
-          <div className="questionTimer">
-          <QuestionTimer key={indiceActual} time={time}/>
-          </div>
-        </>
-      )}
-    </section>
+        {preguntaActual && (
+          <>
+            <div className="BQuestionAnswer">
+              <BQuestionsAnswers
+                title={`Pregunta ${indiceActual + 1}`}
+                pregunta={preguntaActual.question}
+                respuestas={preguntaActual.incorrect_answers}
+                respuestaCorrecta={preguntaActual.correct_answer}
+                onRespuestaSeleccionada={manejarSiguientePregunta}
+                time={time}
+              />
+            </div>
+            <div className="questionTimer">
+              <QuestionTimer key={indiceActual} time={time} />
+            </div>
+          </>
+        )}
+      </section>
     </div>
   );
 }
