@@ -8,6 +8,8 @@ import QuestionTimer from "../assets/components/Progressbar/QuestionTimer";
 import CSpinnerEspacial from "../assets/components/Spinner/CSpinnerEspacial";
 import { agregarEstadistica } from "../assets/components/QuestionsAnswers/Estadisticas";
 
+
+
 function Preguntas() {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
