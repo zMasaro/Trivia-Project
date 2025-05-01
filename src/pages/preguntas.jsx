@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import useTime from "../assets/components/QuestionsAnswers/useTime";
 import QuestionTimer from "../assets/components/Progressbar/QuestionTimer";
 import CSpinnerEspacial from "../assets/components/Spinner/CSpinnerEspacial";
+import { agregarEstadistica } from "../assets/components/QuestionsAnswers/Estadisticas";
 
 function Preguntas() {
   const location = useLocation();
@@ -76,18 +77,15 @@ function Preguntas() {
 
   const preguntaActual = preguntas[indiceActual];
 
+  /*nombre, totalPreguntas, aciertos, porcentajeAciertos, puntajeTotal*/
+  const handleStadisticas = () => {
+    agregarEstadistica(nombre, totalPreguntas, aciertos, porcentajeAciertos, puntajeTotal);
+  }
+
   return (
     <div className="contenedorPagePreguntas">
+      <button id="boton" onClick={() => handleStadisticas()}><a href="/resultados">Teminar</a></button>
     <section className="contenedorPreguntas">
-
-      {/* Mostrar estadísticas 
-      <div className="card p-3 mb-4" style={{ maxWidth: "400px", margin: "auto" }}>
-        <h5 className="text-center mb-3">Estadísticas</h5>
-        <p><strong>Total de Preguntas respondidas:</strong> {totalPreguntas}</p>
-        <p><strong>Aciertos:</strong> {aciertos}</p>
-        <p><strong>Porcentaje de Aciertos:</strong> {porcentajeAciertos}%</p>
-        <p><strong>Puntaje Total:</strong> {puntajeTotal} puntos</p>
-      </div>*/}
 
       {preguntaActual && (
         <>
