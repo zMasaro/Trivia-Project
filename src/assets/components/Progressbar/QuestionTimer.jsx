@@ -20,16 +20,23 @@ function QuestionTimer({time}) {
     return () => clearInterval(timer); 
   }, [timeLeft]); 
 
-  return (
-    <div style={{ width: "80%", margin: "auto", textAlign: "center" }}>
-      <h2>{timeLeft > 0 ? `${timeLeft}s` : "Tiempo agotado!"}</h2>
+  const getBarColor = () => {
+    if (percentage > 55) return "success";   // verde
+    if (percentage > 25) return "warning";   // amarillo
+    return "danger";                         // rojo
+  };
 
+  return (
+    <div className="quetionTimerContainer">
+      <h2 className="questionTimerNumber">{timeLeft > 0 ? `${timeLeft}s` : "Tiempo agotado!"}</h2>
+    <div className="questionTimerProgressBar">
       <BProgressBar
         percentage={percentage} 
-        color="success"          
+        color={getBarColor()}          
         height="20px"            
         width="100%"            
       />
+      </div>
     </div>
   );
 }
