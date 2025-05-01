@@ -6,6 +6,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import useTime from "../assets/components/QuestionsAnswers/useTime";
 import QuestionTimer from "../assets/components/Progressbar/QuestionTimer";
 import CSpinnerEspacial from "../assets/components/Spinner/CSpinnerEspacial";
+import { agregarEstadistica } from "../assets/components/QuestionsAnswers/Estadisticas";
+
+
 
 function Preguntas() {
   const location = useLocation();
@@ -76,41 +79,19 @@ function Preguntas() {
 
   const preguntaActual = preguntas[indiceActual];
 
+  /*nombre, totalPreguntas, aciertos, porcentajeAciertos, puntajeTotal*/
+  const handleStadisticas = () => {
+    agregarEstadistica(nombre, totalPreguntas, aciertos, porcentajeAciertos, puntajeTotal);
+  }
+
   return (
-    <section className="preguntas container mt-5">
-      <h1 className="mb-4">Página de Preguntas</h1>
-      <div className="mb-3">
-        <span className="fw-bold">Nombre:</span> {nombre}
-      </div>
-      <button
-        className="btn btn-warning mb-4"
-        onClick={() => {
-          setPreguntas([]);
-          setIndiceActual(0);
-          cargandoMasRef.current = false;
-          triggerReload();
-
-          // Resetear estadísticas también si recarga
-          setTotalPreguntas(0);
-          setAciertos(0);
-          setPorcentajeAciertos(0);
-          setPuntajeTotal(0);
-        }}
-      >
-        Recargar Preguntas
-      </button>
-
-      {/* Mostrar estadísticas */}
-      <div className="card p-3 mb-4" style={{ maxWidth: "400px", margin: "auto" }}>
-        <h5 className="text-center mb-3">Estadísticas</h5>
-        <p><strong>Total de Preguntas respondidas:</strong> {totalPreguntas}</p>
-        <p><strong>Aciertos:</strong> {aciertos}</p>
-        <p><strong>Porcentaje de Aciertos:</strong> {porcentajeAciertos}%</p>
-        <p><strong>Puntaje Total:</strong> {puntajeTotal} puntos</p>
-      </div>
+    <div className="contenedorPagePreguntas">
+      <button id="boton" onClick={() => handleStadisticas()}><a href="/resultados">Teminar</a></button>
+    <section className="contenedorPreguntas">
 
       {preguntaActual && (
-        <div className="d-flex flex-column align-items-center">
+        <>
+        <div className="BQuestionAnswer">
           <BQuestionsAnswers
             title={`Pregunta ${indiceActual + 1}`}
             pregunta={preguntaActual.question}
@@ -119,11 +100,14 @@ function Preguntas() {
             onRespuestaSeleccionada={manejarSiguientePregunta}
             time={time}
           />
-          <br />
-          <QuestionTimer key={indiceActual} time={time} />
         </div>
+          <div className="questionTimer">
+          <QuestionTimer key={indiceActual} time={time}/>
+          </div>
+        </>
       )}
     </section>
+    </div>
   );
 }
 

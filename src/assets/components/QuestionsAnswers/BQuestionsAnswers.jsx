@@ -9,7 +9,14 @@ function mezclarRespuestas(respuestas, correcta) {
     .map(({ item }) => item);
 }
 
-function BQuestionsAnswers({ title, pregunta, respuestas, respuestaCorrecta, onRespuestaSeleccionada, time }) {
+function BQuestionsAnswers({
+  title,
+  pregunta,
+  respuestas,
+  respuestaCorrecta,
+  onRespuestaSeleccionada,
+  time,
+}) {
   const [respuestaSeleccionada, setRespuestaSeleccionada] = useState(null);
   const timerRef = useRef(null);
   const respondidoRef = useRef(false);
@@ -31,7 +38,9 @@ function BQuestionsAnswers({ title, pregunta, respuestas, respuestaCorrecta, onR
         setRespuestaSeleccionada(respuestaCorrecta);
         respondidoRef.current = true;
 
-        const segundosTardados = Math.floor((Date.now() - tiempoInicioRef.current) / 1000);
+        const segundosTardados = Math.floor(
+          (Date.now() - tiempoInicioRef.current) / 1000
+        );
         if (typeof onRespuestaSeleccionada === "function") {
           onRespuestaSeleccionada(false, segundosTardados); // No acertó
         }
@@ -48,7 +57,9 @@ function BQuestionsAnswers({ title, pregunta, respuestas, respuestaCorrecta, onR
     setRespuestaSeleccionada(respuesta);
     respondidoRef.current = true;
 
-    const segundosTardados = Math.floor((Date.now() - tiempoInicioRef.current) / 1000);
+    const segundosTardados = Math.floor(
+      (Date.now() - tiempoInicioRef.current) / 1000
+    );
     const acerto = respuesta === respuestaCorrecta;
 
     setTimeout(() => {
@@ -59,16 +70,16 @@ function BQuestionsAnswers({ title, pregunta, respuestas, respuestaCorrecta, onR
   };
 
   return (
-    <div className="d-flex flex-column align-items-center gap-3">
-      <h5 className="card-title text-center">{title}</h5>
+    <div className="contenedorQuestions">
+      
 
-      <div className="card text-center mb-3" style={{ width: "22rem" }}>
-        <div className="card-body">
-          <p className="card-text">{pregunta}</p>
-        </div>
+      <div className="tarjetaQuestions">
+        <h5 className="tituloPreguntas">{title}</h5>
+        <p className="textoQuestions">{pregunta}</p>
       </div>
 
-      <div className="d-grid gap-2 w-100" style={{ maxWidth: "22rem" }}>
+      {/*Los botones siguen en bootstrap*/}
+      <div className="opcionesQuestions">
         {respuestasMezcladas.map((respuesta, index) => {
           let color = "primary";
 
@@ -78,11 +89,12 @@ function BQuestionsAnswers({ title, pregunta, respuestas, respuestaCorrecta, onR
             } else if (respuesta === respuestaSeleccionada) {
               color = "danger";
             } else {
-              color = "secondary";
+              color = "primary";
             }
           }
 
           return (
+            
             <CAnswers
               key={index}
               text={respuesta}
