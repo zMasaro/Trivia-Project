@@ -152,6 +152,7 @@ body {
     font-size: 1.2rem;
     padding: 0.75rem 1.5rem;
   }
+
 }
 
 /* ==================== FORMULARIO ==================== */
@@ -221,8 +222,14 @@ select:focus {
   padding: 2rem;
   margin: 2rem;
   border-radius: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.925);
+  background-color: rgba(255, 255, 255, 0.733);
   text-align: center;
+  font-weight: bold;
+  font-size: xx-large;
+}
+.tituloPreguntas{
+  font-size: xx-large;
+  
 }
 
 .botonesAnswers{
@@ -244,29 +251,45 @@ width: 100%;
   border-radius: 100%;
 }
 
-/*----Botones de respues de las preguntas--*/
+/*----Botones de respuesta de las preguntas--*/
 
-.botonPreguntas {
-  display: block;
-  flex-wrap: wrap;
-  justify-content: center;
-  flex-direction: row-reverse;
 
-  max-width: 50dvh;
-  width: 100%;
-  padding: 0.75rem 1rem;
-  margin: 0.75rem 1rem;
+.opcionesQuestions{ /*El bloque que contiene los botones de las preguntas*/
+  position: absolute;
+  display: inline-block;
+  margin-left: 10vw;
+  margin-bottom: 10vh;
+  bottom: 0;
+}
+
+.botonPreguntas{ 
+  display: inline-block;
+  width: 40vw;
   
+
+  font-size: xx-large;
+  padding-right: 8dbw;
+  padding-top: 3dvh;
+  padding-bottom: 3dvh;
+  margin-left: 1dvw;
+  margin-right: 2rem;
+  margin-top: 1dvh;
+
   text-align: center;
   text-decoration: none;
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+
+
+  background: var(--primary-color);
+  border-radius: 0.75rem;
+  transition: all 0.1s ease;
+  filter: drop-shadow(0 0px 10px white);
 }
 
 /*-----*/
 .botonNormalPreguntas {
-  background-color: #007bff;
   color: white;
 }
 
@@ -278,4 +301,21 @@ width: 100%;
 .botonIncorrectoPreguntas {
   background-color: #dc3545;
   color: white;
+}
+
+@media (max-width: 900px) {
+  .tituloPreguntas {
+    font-size: 1.5rem;
+  }
+  .tarjetaQuestions {
+    font-size: 1.5rem;
+  }
+
+  .botonPreguntas {
+    width: 80vw;
+    font-size: 1.5rem;
+    padding: 2vh;
+    margin-right: 5vw;
+    
+  }
 }

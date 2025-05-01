@@ -94,14 +94,13 @@ function BQuestionsAnswers({
           }
 
           return (
-            <div className="botonesAnswers">
+            
             <CAnswers
               key={index}
               text={respuesta}
               color={color}
               onClick={() => handleSeleccion(respuesta)}
             />
-            </div>
           );
         })}
       </div>
