@@ -205,7 +205,6 @@ select:focus {
 #formulario {
   button {
     margin-top: 5vh;
-    margin-bottom: 3vh;
   }
 }
 
@@ -301,6 +300,15 @@ width: 100%;
 .botonIncorrectoPreguntas {
   background-color: #dc3545;
   color: white;
+}
+
+/*------------------Pagina de cargando del spinner--------------------------*/
+
+.Spinner{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30dvh;
 }
 
 @media (max-width: 900px) {

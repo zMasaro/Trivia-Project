@@ -71,9 +71,9 @@ function Preguntas() {
       }
     }, 2000);
   };
-
-  if (loading && preguntas.length === 0) return <CSpinnerEspacial text={"Obteniendo preguntas"} />;
-  if (error) return <CSpinnerEspacial text={`Error: ${error}`} />;
+  
+  if (loading && preguntas.length === 0) return <div className="Spinner"><CSpinnerEspacial className="CSpinnerEspacial" text={"Obteniendo preguntas"} /> </div>;
+  if (error) return <div className="Spinner"><CSpinnerEspacial className="CSpinnerEspacial" text={`Obteniendo preguntas`} /></div>;
 
   const preguntaActual = preguntas[indiceActual];
 
