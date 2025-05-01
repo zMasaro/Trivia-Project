@@ -17,7 +17,7 @@ function App() {
           method: "POST",
           headers: {
             "x-rapidapi-host": "google-translate113.p.rapidapi.com",
-            "x-rapidapi-key": "1ac2ddf0e8msh1add0b06b4d63d3p10e338jsna8be0878c42d",
+            "x-rapidapi-key": "c3a79c8263msh778388dbad9d367p1bc8f7jsnf093e206470a",
             "Content-Type": "application/json"
           },
           body: JSON.stringify({

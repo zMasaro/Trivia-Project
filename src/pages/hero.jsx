@@ -1,6 +1,6 @@
 import { useState } from "react";
 import FormsStart from "../assets/components/Forms/FormsStart";
-import Login from "../assets/components/Share/Login";
+
 
 function hero() {
   const [showForm, setShowForm] = useState(false);
@@ -12,7 +12,6 @@ function hero() {
     <section className="hero">
       <div className="contenido-hero">
         <h1 className="titulo">Pa' Saber!</h1>
-        <Login/>
         {!showForm && (
           <button id="boton" onClick={handleClick}>
             Empezar
