@@ -80,7 +80,7 @@ function Preguntas() {
 
   /*nombre, totalPreguntas, aciertos, porcentajeAciertos, puntajeTotal*/
   const handleStadisticas = () => {
-    agregarEstadistica(nombre, totalPreguntas, aciertos, porcentajeAciertos, puntajeTotal);
+    agregarEstadistica(nombre, totalPreguntas, aciertos, porcentajeAciertos, puntajeTotal, difficulty, category);
   }
 
   let url = `/resultados?`;

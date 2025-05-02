@@ -3,10 +3,7 @@ import { obtenerEstadisticas } from "../assets/components/QuestionsAnswers/Estad
 import STrivia from "../assets/components/Share/STrivia"; // Importar el componente de compartir
 
 function Resultado() {
-   const params = new URLSearchParams(location.search);
-    const [category] = useState(params.get("category") || "");
-    const [difficulty] = useState(params.get("difficulty") || "");
-  const [mostrarOpciones, setMostrarOpciones] = useState(false); // Estado para controlar la visibilidad de las opciones de compartir
+   
 
   const estadisticas = obtenerEstadisticas();
 
@@ -14,7 +11,7 @@ function Resultado() {
     return <p>No hay estadísticas disponibles. Juega una partida primero.</p>;
   }
 
-  const { nombre, totalPreguntas, aciertos, porcentajeAciertos, puntajeTotal } = estadisticas;
+  const { nombre, totalPreguntas, aciertos, porcentajeAciertos, puntajeTotal, dificultad, categoria } = estadisticas;
 
   return (
     <div className="ResultadoPageContainer">
@@ -35,11 +32,15 @@ function Resultado() {
     </section>
 
       <div className="resultadoBotones">
-        <button >Menú</button>
-        <button >Intentar de nuevo</button>
+        <button title="Volver a pagina principal" ><a href={`/`}>Menu</a></button>
+        <button title="Volver a intentar"><a href= {`/preguntas?nombre=${nombre}&category=${categoria}&difficulty=${dificultad}`} >Intentar de nuevo</a></button>
         <STrivia
+            nombre= {nombre}
             totalPreguntas={totalPreguntas}
             porcentajeAciertos={porcentajeAciertos}
+            puntos={puntajeTotal}
+            categoria={categoria}
+            dificultad={dificultad}
           />
       </div>
     </div>

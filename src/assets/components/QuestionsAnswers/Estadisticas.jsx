@@ -1,10 +1,12 @@
-export function agregarEstadistica(nombre, totalPreguntas, aciertos, porcentajeAciertos, puntajeTotal) {
+export function agregarEstadistica(nombre, totalPreguntas, aciertos, porcentajeAciertos, puntajeTotal, dificultad, categoria) {
     const estadisticas = {
         nombre,
         totalPreguntas,
         aciertos,
         porcentajeAciertos,
         puntajeTotal,
+        dificultad,
+        categoria
     };
     localStorage.setItem("estadisticas", JSON.stringify(estadisticas));
 }
