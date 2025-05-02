@@ -1,7 +1,7 @@
 import { FacebookShareButton, TwitterShareButton, WhatsappShareButton } from "react-share";
 
 const STrivia = ({ nombre, totalPreguntas, porcentajeAciertos, puntos, categoria, dificultad }) => {
-  let shareUrl = `triviaapp-b9a34.firebaseapp.com/preguntas?name=Retador`;
+  let shareUrl = `https://jvg2858m-5173.use2.devtunnels.ms/preguntas?name=Retador`;
   if (categoria && categoria.trim() !== "") shareUrl += `&category=${categoria}`;
   if (dificultad && dificultad.trim() !== "") shareUrl += `&difficulty=${dificultad}`;
 
