@@ -12,7 +12,7 @@ import MusicPlayer from "../assets/musica/MusicPlayer";
 function Preguntas() {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
-  const [nombre] = useState(params.get("nombre") || "");
+  const [nombre] = useState(params.get("nombre") || "Retador");
   const [category] = useState(params.get("category") || "");
   const [difficulty] = useState(params.get("difficulty") || "");
 
@@ -83,9 +83,9 @@ function Preguntas() {
     agregarEstadistica(nombre, totalPreguntas, aciertos, porcentajeAciertos, puntajeTotal, difficulty, category);
   }
 
-  let url = `/resultados?`;
-  if (category && category.trim() !== "") url += `&category=${category}`;
-  if (difficulty && difficulty.trim() !== "") url += `&difficulty=${difficulty}`;
+  //let url = `/resultados?`;
+  //if (category && category.trim() !== "") url += `&category=${category}`;
+  //if (difficulty && difficulty.trim() !== "") url += `&difficulty=${difficulty}`;
 
   return (
     

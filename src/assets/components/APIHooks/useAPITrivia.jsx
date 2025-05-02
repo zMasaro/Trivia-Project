@@ -18,7 +18,7 @@ const useAPITrivia = (category, difficulty) => {
         setLoading(true);
         setError(null);
 
-        let url = `https://opentdb.com/api.php?amount=10`;
+        let url = `https://opentdb.com/api.php?amount=25`;
         if (category && category.trim() !== "") url += `&category=${category}`;
         if (difficulty && difficulty.trim() !== "") url += `&difficulty=${difficulty}`;
 
