@@ -226,6 +226,22 @@ select:focus {
   font-weight: bold;
   font-size: xx-large;
 }
+
+.botonExitPreguntas{
+  position: absolute;
+  background-color: transparent;
+  border-radius: 0%;
+  border-color: transparent;
+  right: 0;
+  margin-right: 3dvw;
+  
+}
+.botonExitPreguntasTexto{
+  text-decoration: none;
+  color: black;
+  font-size: xx-large;
+}
+
 .tituloPreguntas{
   font-size: xx-large;
   
@@ -270,7 +286,6 @@ width: 100%;
   padding-right: 8dbw;
   padding-top: 3dvh;
   padding-bottom: 3dvh;
-  margin-left: 1dvw;
   margin-right: 2rem;
   margin-top: 1dvh;
 
@@ -313,18 +328,21 @@ width: 100%;
 
 @media (max-width: 900px) {
   .tituloPreguntas {
-    font-size: 1.5rem;
+    font-size: 1.20rem;
   }
   .tarjetaQuestions {
-    font-size: 1.5rem;
+    font-size: 1.20rem;
   }
 
   .botonPreguntas {
     width: 80vw;
-    font-size: 1.5rem;
-    padding: 2vh;
+    font-size: 1.25em;
+    padding: 2.5vh;
     margin-right: 5vw;
     
+  }
+  .botonExitPreguntas{
+    margin-right: 7vw;
   }
 }
 

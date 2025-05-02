@@ -9,7 +9,6 @@ import CSpinnerEspacial from "../assets/components/Spinner/CSpinnerEspacial";
 import { agregarEstadistica } from "../assets/components/QuestionsAnswers/Estadisticas";
 
 
-
 function Preguntas() {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
@@ -86,27 +85,28 @@ function Preguntas() {
 
   return (
     <div className="contenedorPagePreguntas">
-      <button id="boton" onClick={() => handleStadisticas()}><a href="/resultados">Teminar</a></button>
-      <section className="contenedorPreguntas">
-
-        {preguntaActual && (
-          <>
-            <div className="BQuestionAnswer">
-              <BQuestionsAnswers
-                title={`Pregunta ${indiceActual + 1}`}
-                pregunta={preguntaActual.question}
-                respuestas={preguntaActual.incorrect_answers}
-                respuestaCorrecta={preguntaActual.correct_answer}
-                onRespuestaSeleccionada={manejarSiguientePregunta}
-                time={time}
-              />
-            </div>
-            <div className="questionTimer">
-              <QuestionTimer key={indiceActual} time={time} />
-            </div>
-          </>
-        )}
-      </section>
+      
+    <section className="contenedorPreguntas">
+    
+      {preguntaActual && (
+        <>
+        <button className="botonExitPreguntas" onClick={() => handleStadisticas()}><a className="botonExitPreguntasTexto" href="/resultados"><img src="/src/assets/imagenes/exit.png" alt="" /></a></button>
+        <div className="BQuestionAnswer">        
+          <BQuestionsAnswers
+            title={`Pregunta ${indiceActual + 1}`}
+            pregunta={preguntaActual.question}
+            respuestas={preguntaActual.incorrect_answers}
+            respuestaCorrecta={preguntaActual.correct_answer}
+            onRespuestaSeleccionada={manejarSiguientePregunta}
+            time={time}
+          />
+        </div>
+          <div className="questionTimer">
+          <QuestionTimer key={indiceActual} time={time}/>
+          </div>
+        </>
+      )}
+    </section>
     </div>
   );
 }

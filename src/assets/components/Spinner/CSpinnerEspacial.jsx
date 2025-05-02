@@ -13,6 +13,7 @@ const CSpinnerEspacial = ({text}) => {
       <BSpinner size="large" />
       
     </div>    
+    
     <h1 id='h1'>{text}</h1>                                                                                                                                               
     </>            
   );
