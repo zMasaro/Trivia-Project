@@ -242,6 +242,13 @@ select:focus {
   font-size: xx-large;
 }
 
+.puntajeTotalPreguntas{
+  position: absolute;
+  left: 0;
+  margin-left: 3dvw;  
+  font-size: 3vh;
+}
+
 .tituloPreguntas{
   font-size: xx-large;
   
@@ -343,6 +350,9 @@ width: 100%;
   }
   .botonExitPreguntas{
     margin-right: 7vw;
+  }
+  .puntajeTotalPreguntas{
+    margin-left: 8vw;
   }
 }
 
