@@ -372,8 +372,8 @@ width: 100%;
 /*-------------Pagina Resultados-------------------*/
 
 .ResultadosInfo{
-  background-color: #520ea0c0;
-  padding: 5vh;
+  background-color: #520ea0c0;  
+  padding: 3vh;
   border: 3px solid var(--primary-color);
   border-radius: 1.3rem;
   box-shadow: 0 0 3rem var(--secondary-color);
@@ -415,6 +415,11 @@ width: 100%;
 }
 
 .resultadoBotones{
+  display: flex;
+  justify-content: center;
+}
+
+.menusbotones{
   display: flex;
   justify-content: center;
 }

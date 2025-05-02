@@ -55,7 +55,7 @@ function FormsStart(path) {
                     <h2>Selecciona tu desafío</h2>
                     
                     <label className="titulo-Etiqueta" htmlFor="nombre" >Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre aqui" onChange={(e) => setNombre(e.target.value)} />
+                    <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre aqui" onChange={(e) => setNombre(e.target.value)}  required />
 
 
 
@@ -63,7 +63,7 @@ function FormsStart(path) {
                     <CSelect id="category" name="category" items={categories} onChange={(e) => setCategory(e.target.value)} />
 
                     <label className="titulo-Etiqueta" htmlFor="dificultad">Dificultad:</label>
-                    <CSelect id="difficulty" name="difficulty" required="" items={items} onChange={(e) => setDifficulty(e.target.value)}></CSelect>
+                    <CSelect id="difficulty" name="difficulty" items={items} onChange={(e) => setDifficulty(e.target.value)}></CSelect>
 
                     <button id="boton" type="submit">Desafiar</button>
                 </form>
