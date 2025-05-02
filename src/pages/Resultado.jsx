@@ -2,10 +2,6 @@ import { useState } from "react";
 import { obtenerEstadisticas } from "../assets/components/QuestionsAnswers/Estadisticas";
 import STrivia from "../assets/components/Share/STrivia"; // Importar el componente de compartir
 
-import React from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import CAnswer from "../assets/components/QuestionsAnswers/CAnswers";
-import { Link } from "react-router-dom";
 function Resultado() {
   const [mostrarOpciones, setMostrarOpciones] = useState(false); // Estado para controlar la visibilidad de las opciones de compartir
 
@@ -15,17 +11,12 @@ function Resultado() {
     return <p>No hay estadísticas disponibles. Juega una partida primero.</p>;
   }
 
-  /* Obtener estadísticas desde localStorage mediante la logica que ira en
-   preguntas, para almanecenar la estadisticas*/
-  const estadisticas = JSON.parse(localStorage.getItem("estadisticas"));
-  //Const para la estadisiticas
   const { nombre, totalPreguntas, aciertos, porcentajeAciertos, puntajeTotal } = estadisticas;
 
   return (
     <section className="d-flex flex-column align-items-center justify-content-center min-vh-100 text-center">
       <h1 className="titulo mb-4 display-4">Resultado</h1>
 
-      <div className="card p-4 mb-4 shadow">
       <div className="card p-4 mb-4 shadow">
         <div className="mb-3">
           <span className="fw-bold">Nombre:</span> {nombre}
@@ -38,22 +29,11 @@ function Resultado() {
       </div>
 
       <div className="d-flex flex-wrap gap-3 justify-content-center">
-        <button id="boton">Menú</button>
-        <button id="boton">Intentar de nuevo</button>
+      <button id="boton" ><a href="/">Menu</a></button>
+       <button id="boton"><a href="/preguntas">Intentar de nuevo</a></button>
         <button id="boton" onClick={() => setMostrarOpciones(!mostrarOpciones)}>
           Compartir
         </button>
-
-      <div className="d-flex justify-content-center gap-3" style={{ width: "auto" }}>
-        <Link to="/" className="btn" id="boton">
-          Empezar
-        </Link>
-        <Link to="/preguntas" className="btn" id="boton">
-          Intentar de nuevo
-        </Link>
-        <Link to="/" className="btn" id="boton">
-          Compartir
-        </Link>
       </div>
 
       {/* Mostrar las opciones de compartir si el estado está activado */}
