@@ -21,16 +21,16 @@ function Resultado() {
         <div className="mb-3">
           <span className="fw-bold">Nombre:</span> {nombre}
         </div>
-        <h3 className="mb-3">Estadísticas</h3>
-        <p><strong>Total de Preguntas:</strong> {totalPreguntas}</p>
+        <h5 className="mb-3">Estadísticas</h5>
+        <p><strong>Total de Preguntas respondidas:</strong> {totalPreguntas}</p>
         <p><strong>Aciertos:</strong> {aciertos}</p>
         <p><strong>Porcentaje de Aciertos:</strong> {porcentajeAciertos}%</p>
         <p><strong>Puntaje Total:</strong> {puntajeTotal} puntos</p>
       </div>
 
       <div className="d-flex flex-wrap gap-3 justify-content-center">
-        <button id="boton">Menú</button>
-        <button id="boton">Intentar de nuevo</button>
+      <button id="boton" ><a href="/">Menu</a></button>
+       <button id="boton"><a href="/preguntas">Intentar de nuevo</a></button>
         <button id="boton" onClick={() => setMostrarOpciones(!mostrarOpciones)}>
           Compartir
         </button>
