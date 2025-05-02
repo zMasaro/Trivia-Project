@@ -94,8 +94,9 @@ function Preguntas() {
     
       {preguntaActual && (
         <>
+        <p className="puntajeTotalPreguntas"><img src="/src/assets/imagenes/trophy.png" alt="" />{puntajeTotal}</p>
         <button className="botonExitPreguntas" title="Terminar juego" onClick={() => handleStadisticas()}><a className="botonExitPreguntasTexto" href="/resultados"><img src="/src/assets/imagenes/exit.png" alt="" /></a></button>
-        <div className="BQuestionAnswer">        
+        <div className="BQuestionAnswer">         
           <BQuestionsAnswers
             title={`Pregunta ${indiceActual + 1}`}
             pregunta={preguntaActual.question}

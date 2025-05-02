@@ -15,21 +15,60 @@ function Resultado() {
 
   return (
     <div className="ResultadoPageContainer">
-    
-    <h1 className="tituloResultado">Resultado</h1>
-    <section className="ResultadosInfo">
-      <div className="infoResultados">
-        <div className="infoResultadoNombre">
-          <span className="">Nombre:</span> {nombre}
+      <h1 className="tituloResultado">Resultados</h1>
+      <section className="ResultadosInfo">
+        <div className="infoResultados">
+          <h3 className="subtituloResultado">Estadísticas</h3>
+          <table>
+            <tr>
+              <th></th>
+              <th>
+                <p className="nombreResultados">Nombre: {nombre}</p>
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <img
+                  className="questionIcon"
+                  src="/src/assets/imagenes/questionMark.png"
+                  alt=""
+                />
+              </td>
+              <td>
+                <p className="questionText">Total de Preguntas:</p>
+              </td>
+              <td> {totalPreguntas}</td>
+            </tr>
+            <tr>
+              <td>
+                <img
+                  className="checkedIcon"
+                  src="/src/assets/imagenes/checked.png"
+                  alt=""
+                />
+              </td>
+              <td>
+                <p className="checkedText">Correctas: </p>
+              </td>
+              <td>{aciertos}</td>
+            </tr>
+            <tr>
+              <td><img src="/src/assets/imagenes/analytics.png" alt="" /></td>
+              <td>
+                <p>Porcentaje correcto: </p>
+              </td>
+              <td>{porcentajeAciertos}%</td>
+            </tr>
+            <tr>
+              <td><img src="/src/assets/imagenes/trophy.png" alt="" /></td>
+              <td>
+                <p>Puntaje Total: puntos</p>
+              </td>
+              <td>{puntajeTotal}</td>
+            </tr>
+          </table>
         </div>
-        <h3 className="subtituloResultado">Estadísticas</h3>
-        <p><strong>Total de Preguntas:</strong> {totalPreguntas}</p>
-        <p><strong>Aciertos:</strong> {aciertos}</p>
-        <p><strong>Porcentaje de Aciertos:</strong> {porcentajeAciertos}%</p>
-        <p><strong>Puntaje Total:</strong> {puntajeTotal} puntos</p>
-      </div>
-      
-    </section>
+      </section>
 
       <div className="resultadoBotones">
         <button title="Volver a pagina principal" ><a href={`/`}><img src="src/assets/imagenes/casa.png"></img></a></button>
