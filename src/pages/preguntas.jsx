@@ -84,9 +84,13 @@ function Preguntas() {
     agregarEstadistica(nombre, totalPreguntas, aciertos, porcentajeAciertos, puntajeTotal);
   }
 
+  let url = `/resultados?`;
+  if (category && category.trim() !== "") url += `&category=${category}`;
+  if (difficulty && difficulty.trim() !== "") url += `&difficulty=${difficulty}`;
+
   return (
     <div className="contenedorPagePreguntas">
-      <button id="boton" onClick={() => handleStadisticas()}><a href="/resultados">Teminar</a></button>
+      <button id="boton" onClick={() => handleStadisticas()}><a href={url}>Teminar</a></button>
       <section className="contenedorPreguntas">
 
         {preguntaActual && (

@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Hero />} />
           <Route path="/preguntas" element={<Preguntas />} />
-          <Route path="/resultado" element={<Resultado />} />
+          <Route path="/resultados" element={<Resultado />} />
         </Routes>
       </BrowserRouter>
     </>

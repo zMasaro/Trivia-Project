@@ -3,6 +3,9 @@ import { obtenerEstadisticas } from "../assets/components/QuestionsAnswers/Estad
 import STrivia from "../assets/components/Share/STrivia"; // Importar el componente de compartir
 
 function Resultado() {
+   const params = new URLSearchParams(location.search);
+    const [category] = useState(params.get("category") || "");
+    const [difficulty] = useState(params.get("difficulty") || "");
   const [mostrarOpciones, setMostrarOpciones] = useState(false); // Estado para controlar la visibilidad de las opciones de compartir
 
   const estadisticas = obtenerEstadisticas();
@@ -30,7 +33,7 @@ function Resultado() {
 
       <div className="d-flex flex-wrap gap-3 justify-content-center">
       <button id="boton" ><a href="/">Menu</a></button>
-       <button id="boton"><a href="/preguntas">Intentar de nuevo</a></button>
+       <button id="boton"><a href={ `/preguntas?nombre=${nombre}&category=${category}&difficulty=${difficulty}`}>Intentar de nuevo</a></button>
         <button id="boton" onClick={() => setMostrarOpciones(!mostrarOpciones)}>
           Compartir
         </button>
