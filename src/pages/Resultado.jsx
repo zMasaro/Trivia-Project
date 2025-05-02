@@ -32,8 +32,8 @@ function Resultado() {
     </section>
 
       <div className="resultadoBotones">
-        <button title="Volver a pagina principal" ><a href={`/`}>Menu</a></button>
-        <button title="Volver a intentar"><a href= {`/preguntas?nombre=${nombre}&category=${categoria}&difficulty=${dificultad}`} >Intentar de nuevo</a></button>
+        <button title="Volver a pagina principal" ><a href={`/`}><img src="src/assets/imagenes/casa.png"></img></a></button>
+        <button title="Volver a intentar"><a href= {`/preguntas?nombre=${nombre}&category=${categoria}&difficulty=${dificultad}`} ><img src="src/assets/imagenes/reiniciar.png"></img></a></button>
         <STrivia
             nombre= {nombre}
             totalPreguntas={totalPreguntas}

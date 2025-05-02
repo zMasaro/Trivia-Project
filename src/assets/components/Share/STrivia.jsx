@@ -1,19 +1,23 @@
 import { FacebookShareButton, TwitterShareButton, WhatsappShareButton } from "react-share";
 
-const STrivia = ({ totalPreguntas, porcentajeAciertos }) => {
-  const shareUrl = "https://tu-aplicacion.com";
-  const shareMessage = `¡He respondido ${totalPreguntas} preguntas con un ${porcentajeAciertos}% de aciertos en Pa' Saber!`;
+const STrivia = ({ nombre, totalPreguntas, porcentajeAciertos, puntos, categoria, dificultad }) => {
+  let shareUrl = `triviaapp-b9a34.firebaseapp.com/preguntas?name=Retador`;
+  if (categoria && categoria.trim() !== "") shareUrl += `&category=${categoria}`;
+  if (dificultad && dificultad.trim() !== "") shareUrl += `&difficulty=${dificultad}`;
+
+  //const shareUrl = `triviaapp-b9a34.firebaseapp.com/preguntas?name=Retador&category=${ca}&difficulty=${}`;
+  const shareMessage = `¡${nombre} a respondido ${totalPreguntas} preguntas con un ${porcentajeAciertos}% de aciertos y un puntaje de:${puntos}. En Pa' Saber! Te invito a superarlo!`;
 
   return (
     <div className="share-buttons">
       <FacebookShareButton url={shareUrl} quote={shareMessage}>
-        Compartir en Facebook
+        <img src="src/assets/imagenes/facebook.png"></img>
       </FacebookShareButton>
       <TwitterShareButton url={shareUrl} title={shareMessage}>
-        Compartir en Twitter
+        <img src="src/assets/imagenes/equisX.png"></img>
       </TwitterShareButton>
       <WhatsappShareButton url={shareUrl} title={shareMessage}>
-        compartir con WhatsappShareButton
+        <img src="src/assets/imagenes/whatsapp.png"></img>
       </WhatsappShareButton>
     </div>
   );
