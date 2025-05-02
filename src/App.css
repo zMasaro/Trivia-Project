@@ -362,17 +362,33 @@ width: 100%;
 /*-------------Pagina Resultados-------------------*/
 
 .ResultadosInfo{
-  background-color: rgba(255, 255, 255, 0.747);
+  background-color: #520ea0c0;
   padding: 5vh;
-  border-radius: 10%;
+  border: 3px solid var(--primary-color);
+  border-radius: 1.3rem;
+  box-shadow: 0 0 3rem var(--secondary-color);
+
+  color: white;
+  font-family: sans-serif;  
 }
+
+.nombreResultados{
+  font-weight: lighter;
+}
+.subtituloResultado {
+  text-align: center; /* Centrar el texto horizontalmente */
+  margin-top: 0 auto;
+  font-size: 1.5rem;
+}
+
 .ResultadoPageContainer{
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
 .tituloResultado{
-  font-size: 4vw;
+  font-size: 2rem;
   font-family: "Kraash", sans-serif;
   color: white;
 }

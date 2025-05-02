@@ -55,7 +55,7 @@ function FormsStart(path) {
                     <h2>Selecciona tu desafío</h2>
                     
                     <label className="titulo-Etiqueta" htmlFor="nombre" >Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" required="" placeholder="Ingresa tu nombre aqui" onChange={(e) => setNombre(e.target.value)} />
+                    <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre aqui" onChange={(e) => setNombre(e.target.value)} />
 
 
 
