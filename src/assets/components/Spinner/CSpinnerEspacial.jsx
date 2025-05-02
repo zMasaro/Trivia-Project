@@ -6,13 +6,15 @@ import './SpinnerESpacial.css';
 const CSpinnerEspacial = ({text}) => {
   return (
     <>
-    <h1 id='h1'>{text}</h1>
+    
 
     <div className="spinner-container">
      
       <BSpinner size="large" />
       
-    </div>                                                                                                                                                   
+    </div>    
+    
+    <h1 id='h1'>{text}</h1>                                                                                                                                               
     </>            
   );
 };

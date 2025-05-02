@@ -9,7 +9,6 @@ import CSpinnerEspacial from "../assets/components/Spinner/CSpinnerEspacial";
 import { agregarEstadistica } from "../assets/components/QuestionsAnswers/Estadisticas";
 
 
-
 function Preguntas() {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
@@ -73,9 +72,9 @@ function Preguntas() {
       }
     }, 2000);
   };
-
-  if (loading && preguntas.length === 0) return <CSpinnerEspacial text={"Obteniendo preguntas"} />;
-  if (error) return <CSpinnerEspacial text={`Error: ${error}`} />;
+  
+  if (loading && preguntas.length === 0) return <div className="Spinner"><CSpinnerEspacial className="CSpinnerEspacial" text={"Obteniendo preguntas"} /> </div>;
+  if (error) return <div className="Spinner"><CSpinnerEspacial className="CSpinnerEspacial" text={`Obteniendo preguntas`} /></div>;
 
   const preguntaActual = preguntas[indiceActual];
 
@@ -90,27 +89,28 @@ function Preguntas() {
 
   return (
     <div className="contenedorPagePreguntas">
-      <button id="boton" onClick={() => handleStadisticas()}><a href={url}>Teminar</a></button>
-      <section className="contenedorPreguntas">
-
-        {preguntaActual && (
-          <>
-            <div className="BQuestionAnswer">
-              <BQuestionsAnswers
-                title={`Pregunta ${indiceActual + 1}`}
-                pregunta={preguntaActual.question}
-                respuestas={preguntaActual.incorrect_answers}
-                respuestaCorrecta={preguntaActual.correct_answer}
-                onRespuestaSeleccionada={manejarSiguientePregunta}
-                time={time}
-              />
-            </div>
-            <div className="questionTimer">
-              <QuestionTimer key={indiceActual} time={time} />
-            </div>
-          </>
-        )}
-      </section>
+      
+    <section className="contenedorPreguntas">
+    
+      {preguntaActual && (
+        <>
+        <button className="botonExitPreguntas" title="Terminar juego" onClick={() => handleStadisticas()}><a className="botonExitPreguntasTexto" href="/resultados"><img src="/src/assets/imagenes/exit.png" alt="" /></a></button>
+        <div className="BQuestionAnswer">        
+          <BQuestionsAnswers
+            title={`Pregunta ${indiceActual + 1}`}
+            pregunta={preguntaActual.question}
+            respuestas={preguntaActual.incorrect_answers}
+            respuestaCorrecta={preguntaActual.correct_answer}
+            onRespuestaSeleccionada={manejarSiguientePregunta}
+            time={time}
+          />
+        </div>
+          <div className="questionTimer">
+          <QuestionTimer key={indiceActual} time={time}/>
+          </div>
+        </>
+      )}
+    </section>
     </div>
   );
 }

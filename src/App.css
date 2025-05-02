@@ -205,7 +205,6 @@ select:focus {
 #formulario {
   button {
     margin-top: 5vh;
-    margin-bottom: 3vh;
   }
 }
 
@@ -227,6 +226,22 @@ select:focus {
   font-weight: bold;
   font-size: xx-large;
 }
+
+.botonExitPreguntas{
+  position: absolute;
+  background-color: transparent;
+  border-radius: 0%;
+  border-color: transparent;
+  right: 0;
+  margin-right: 3dvw;  
+}
+
+.botonExitPreguntasTexto{
+  text-decoration: none;
+  color: black;
+  font-size: xx-large;
+}
+
 .tituloPreguntas{
   font-size: xx-large;
   
@@ -271,7 +286,6 @@ width: 100%;
   padding-right: 8dbw;
   padding-top: 3dvh;
   padding-bottom: 3dvh;
-  margin-left: 1dvw;
   margin-right: 2rem;
   margin-top: 1dvh;
 
@@ -303,20 +317,32 @@ width: 100%;
   color: white;
 }
 
+/*------------------Pagina de cargando del spinner--------------------------*/
+
+.Spinner{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30dvh;
+}
+
 @media (max-width: 900px) {
   .tituloPreguntas {
-    font-size: 1.5rem;
+    font-size: 1.20rem;
   }
   .tarjetaQuestions {
-    font-size: 1.5rem;
+    font-size: 1.20rem;
   }
 
   .botonPreguntas {
     width: 80vw;
-    font-size: 1.5rem;
-    padding: 2vh;
+    font-size: 1.25em;
+    padding: 2.5vh;
     margin-right: 5vw;
     
+  }
+  .botonExitPreguntas{
+    margin-right: 7vw;
   }
 }
 
@@ -331,4 +357,22 @@ width: 100%;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+/*-------------Pagina Resultados-------------------*/
+
+.ResultadosInfo{
+  background-color: rgba(255, 255, 255, 0.747);
+  padding: 5vh;
+  border-radius: 10%;
+}
+.ResultadoPageContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tituloResultado{
+  font-size: 4vw;
+  font-family: "Kraash", sans-serif;
+  color: white;
 }
