@@ -127,19 +127,19 @@ body {
 }
 
 .wave2 {
-  animation-duration: 8s;
+  animation-duration: 11s;
 }
 .wave3 {
-  animation-duration: 6s;
+  animation-duration: 10s;
 }
 .wave4 {
-  animation-duration: 7s;
+  animation-duration: 10s;
 }
 .wave5 {
-  animation-duration: 5s;
+  animation-duration: 8s;
 }
 .wave6 {
-  animation-duration: 3.5s;
+  animation-duration: 7s;
 }
 
 /* ==================== RESPONSIVE ==================== */
@@ -372,8 +372,8 @@ width: 100%;
 /*-------------Pagina Resultados-------------------*/
 
 .ResultadosInfo{
-  background-color: #520ea0c0;
-  padding: 5vh;
+  background-color: #520ea0c0;  
+  padding: 3vh;
   border: 3px solid var(--primary-color);
   border-radius: 1.3rem;
   box-shadow: 0 0 3rem var(--secondary-color);
@@ -402,3 +402,25 @@ width: 100%;
   font-family: "Kraash", sans-serif;
   color: white;
 }
+
+.menuBoton,.resetBoton{
+  background-color: transparent;
+  border: transparent;
+  margin: 1dvw;
+  padding: 5px;   
+}
+
+.facebook,.equis,.wasap{
+  margin: 10px;
+}
+
+.resultadoBotones{
+  display: flex;
+  justify-content: center;
+}
+
+.menusbotones{
+  display: flex;
+  justify-content: center;
+}
+

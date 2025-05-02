@@ -10,13 +10,13 @@ const STrivia = ({ nombre, totalPreguntas, porcentajeAciertos, puntos, categoria
 
   return (
     <div className="share-buttons">
-      <FacebookShareButton url={shareUrl} quote={shareMessage}>
+      <FacebookShareButton className="facebook" url={shareUrl} quote={shareMessage}>
         <img src="src/assets/imagenes/facebook.png"></img>
       </FacebookShareButton>
-      <TwitterShareButton url={shareUrl} title={shareMessage}>
+      <TwitterShareButton className="equis" url={shareUrl} title={shareMessage}>
         <img src="src/assets/imagenes/equisX.png"></img>
       </TwitterShareButton>
-      <WhatsappShareButton url={shareUrl} title={shareMessage}>
+      <WhatsappShareButton className="wasap" url={shareUrl} title={shareMessage}>
         <img src="src/assets/imagenes/whatsapp.png"></img>
       </WhatsappShareButton>
     </div>
