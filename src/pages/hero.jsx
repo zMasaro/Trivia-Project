@@ -1,6 +1,6 @@
 import { useState } from "react";
 import FormsStart from "../assets/components/Forms/FormsStart";
-
+import MusicPlayer from "../assets/musica/MusicPlayer"; // Importa el componente de música
 
 function hero() {
   const [showForm, setShowForm] = useState(false);
@@ -10,7 +10,7 @@ function hero() {
   };
   return (
     <section className="hero">
-
+<MusicPlayer src="src/assets/musica/portada.mp3"></MusicPlayer>
 
       <div className="contenido-hero">
         <h1 className="titulo">Pa' Saber!</h1>

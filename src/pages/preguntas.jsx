@@ -7,7 +7,7 @@ import useTime from "../assets/components/QuestionsAnswers/useTime";
 import QuestionTimer from "../assets/components/Progressbar/QuestionTimer";
 import CSpinnerEspacial from "../assets/components/Spinner/CSpinnerEspacial";
 import { agregarEstadistica } from "../assets/components/QuestionsAnswers/Estadisticas";
-
+import MusicPlayer from "../assets/musica/MusicPlayer";
 
 function Preguntas() {
   const location = useLocation();
@@ -88,8 +88,9 @@ function Preguntas() {
   if (difficulty && difficulty.trim() !== "") url += `&difficulty=${difficulty}`;
 
   return (
+    
     <div className="contenedorPagePreguntas">
-      
+      <MusicPlayer src="src/assets/musica/preguntas.mp3"></MusicPlayer>
     <section className="contenedorPreguntas">
     
       {preguntaActual && (
