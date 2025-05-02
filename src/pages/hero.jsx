@@ -10,6 +10,8 @@ function hero() {
   };
   return (
     <section className="hero">
+
+
       <div className="contenido-hero">
         <h1 className="titulo">Pa' Saber!</h1>
         {!showForm && (

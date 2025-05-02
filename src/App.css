@@ -127,19 +127,19 @@ body {
 }
 
 .wave2 {
-  animation-duration: 8s;
+  animation-duration: 11s;
 }
 .wave3 {
-  animation-duration: 6s;
+  animation-duration: 10s;
 }
 .wave4 {
-  animation-duration: 7s;
+  animation-duration: 10s;
 }
 .wave5 {
-  animation-duration: 5s;
+  animation-duration: 8s;
 }
 .wave6 {
-  animation-duration: 3.5s;
+  animation-duration: 7s;
 }
 
 /* ==================== RESPONSIVE ==================== */
