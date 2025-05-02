@@ -402,3 +402,20 @@ width: 100%;
   font-family: "Kraash", sans-serif;
   color: white;
 }
+
+.menuBoton,.resetBoton{
+  background-color: transparent;
+  border: transparent;
+  margin: 1dvw;
+  padding: 5px;   
+}
+
+.facebook,.equis,.wasap{
+  margin: 10px;
+}
+
+.resultadoBotones{
+  display: flex;
+  justify-content: center;
+}
+

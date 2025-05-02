@@ -14,6 +14,7 @@ function Resultado() {
   const { nombre, totalPreguntas, aciertos, porcentajeAciertos, puntajeTotal, dificultad, categoria } = estadisticas;
 
   return (
+    <>
     <div className="ResultadoPageContainer">
       <h1 className="tituloResultado">Resultados</h1>
       <section className="ResultadosInfo">
@@ -62,7 +63,7 @@ function Resultado() {
             <tr>
               <td><img src="/src/assets/imagenes/trophy.png" alt="" /></td>
               <td>
-                <p>Puntaje Total: puntos</p>
+                <p>Puntaje Total:</p>
               </td>
               <td>{puntajeTotal}</td>
             </tr>
@@ -70,10 +71,13 @@ function Resultado() {
         </div>
       </section>
 
-      <div className="resultadoBotones">
-        <button title="Volver a pagina principal" ><a href={`/`}><img src="src/assets/imagenes/casa.png"></img></a></button>
-        <button title="Volver a intentar"><a href= {`/preguntas?nombre=${nombre}&category=${categoria}&difficulty=${dificultad}`} ><img src="src/assets/imagenes/reiniciar.png"></img></a></button>
-        <STrivia
+      
+    </div>
+    <div className="resultadoBotones">
+    <button className="menuBoton" title="Volver a pagina principal" ><a href={`/`}><img src="src/assets/imagenes/casa.png"></img></a></button>
+        <button className="resetBoton" title="Volver a intentar"><a href= {`/preguntas?nombre=${nombre}&category=${categoria}&difficulty=${dificultad}`} ><img src="src/assets/imagenes/reiniciar.png"></img></a></button>
+      
+        <STrivia 
             nombre= {nombre}
             totalPreguntas={totalPreguntas}
             porcentajeAciertos={porcentajeAciertos}
@@ -82,7 +86,7 @@ function Resultado() {
             dificultad={dificultad}
           />
       </div>
-    </div>
+    </>
   );
 }
 
